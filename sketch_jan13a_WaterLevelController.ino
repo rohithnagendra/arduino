@@ -25,20 +25,19 @@ void setup() {
 	pinMode(redLED, OUTPUT);
 	pinMode(yellowLED, OUTPUT);
 	pinMode(greenLED, OUTPUT);
-  pinMode(buzzer, OUTPUT);
+  	pinMode(buzzer, OUTPUT);
 
 	// Initially turn off all LEDs
 	digitalWrite(redLED, LOW);
 	digitalWrite(yellowLED, LOW);
 	digitalWrite(greenLED, LOW);
-  digitalWrite(buzzer, LOW);
+  	digitalWrite(buzzer, LOW);
 
 }
 
 void loop() {
 	int level = readSensor();
   
-
 	if (level > 0 && level <= 50) {
 		Serial.println("Water Level: Empty");
 		digitalWrite(redLED, LOW);
@@ -46,28 +45,29 @@ void loop() {
 		digitalWrite(greenLED, LOW);
     digitalWrite(buzzer, LOW);
 	}
-	else if (level > 0 && level <= lowerThreshold) {
+	else if (level > 0 && level <= lowerThreshold) 
+	{
 		Serial.println("Water Level: Low");
 		digitalWrite(redLED, HIGH);
 		digitalWrite(yellowLED, LOW);
 		digitalWrite(greenLED, LOW);
     digitalWrite(buzzer, LOW);
-}
-	else if (level > lowerThreshold && level <= upperThreshold) {
+	}
+	else if (level > lowerThreshold && level <= upperThreshold) 
+	{
 		Serial.println("Water Level: Medium");
 		digitalWrite(redLED, LOW);
 		digitalWrite(yellowLED, HIGH);
 		digitalWrite(greenLED, LOW);
-    digitalWrite(buzzer, LOW);
-
+    		digitalWrite(buzzer, LOW);
 	}
-	else if (level > upperThreshold) {
+	else if (level > upperThreshold) 
+	{
 		Serial.println("Water Level: High");
 		digitalWrite(redLED, LOW);
 		digitalWrite(yellowLED, LOW);
 		digitalWrite(greenLED, HIGH);
-    digitalWrite(buzzer, HIGH);
-
+    		digitalWrite(buzzer, HIGH);
 	}
 	delay(1000);
 }
